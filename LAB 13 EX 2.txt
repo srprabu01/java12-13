@@ -1,0 +1,46 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+/* 
+ * <applet code = "Shapes" width = 1000 height = 500>
+ * </applet>  
+ * */
+public class Shapes extends Applet implements ItemListener{
+
+	CheckboxGroup grp = new CheckboxGroup();	
+	Checkbox circle,square,rectangle;
+	public void init(){
+		circle = new Checkbox("Circle", grp, false);
+		square = new Checkbox("Square", grp, false);
+		rectangle = new Checkbox("Rectangle", grp, false);
+		
+		
+		circle.addItemListener(this);
+		square.addItemListener(this);
+		rectangle.addItemListener(this);
+		
+		add(circle);
+		add(square);
+		add(rectangle);
+	}
+	public void paint(Graphics g)
+                      { 
+  		
+		if(circle.getState() == true) {
+			setBackground(Color.PINK);
+			 g.setColor(Color.white);	
+			 g.drawOval(20,20,200,120);
+			
+		}
+		else if(square.getState() == true) {
+		         setBackground(Color.WHITE);
+	                           g.setColor(Color.black);
+		         g.drawRect(100,100,50,50);
+		}
+		elseif(rectangle.getState()== true){
+		        setBackground(Color.BLACK);
+	                           g.setColor(Color.purple);
+		         g.drawRect(10,10,50,100);
+		}
+	}
+}
